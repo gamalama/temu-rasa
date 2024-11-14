@@ -56,18 +56,22 @@ body {
 
 .nav__item {
     width: 100%;
+    display: list-item;
     list-style: none;
 }
 
 .nav__item a {
+    display: inline-block;
     text-decoration: none;
     color: black;
+    padding-block: .65em;
 }
 
 .header__menu {
     color: black;
     display: block;
-    padding: 14px 16px;
+    background: transparent;
+    border: none;
     text-decoration: none;
     font-size: 17px;
 }
