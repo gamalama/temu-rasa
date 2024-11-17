@@ -3,18 +3,20 @@ import '../styles/reset.css';
 import '../styles/main.css';
 import '../styles/responsive.css';
 import App from './views/app';
+import swRegister from './utils/sw-register';
 
 const app = new App({
   button: document.querySelector('#menu'),
   drawer: document.querySelector('#drawer'),
   content: document.querySelector('#mainContent'),
-  hero: document.querySelector('.hero'),
+  // hero: document.querySelector('.hero'),
 });
 
-// const menu = document.querySelector('#menu');
-// const drawer = document.querySelector('#drawer');
+window.addEventListener('hashchange', ()=> {
+  app.renderPage();
+});
 
-// menu.addEventListener('click', (event) => {
-//   drawer.classList.toggle('open');
-//   event.stopPropagation();
-// });
+window.addEventListener('load', ()=>{
+  app.renderPage();
+  swRegister();
+});

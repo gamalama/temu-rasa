@@ -1,0 +1,21 @@
+{
+  "id": "temu-rasa-pwa-1",
+  "name": "Temu Rasa",
+  "description": "Platform pencarian restoran yang membantu Anda menemukan tempat makan favorit. Dari rekomendasi hingga ulasan, semua ada di sini",
+  "theme_color": "#f4a261",
+  "background_color": "#f7e9d7",
+  "display": "standalone",
+  "start_url": "./index.html",
+  "icons": [
+    {
+      "src": "/icons/icon-192x192.png",
+      "sizes": "192x192",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-512x512.png",
+      "sizes": "512x512",
+      "purpose": "any"
+    }
+  ]
+}

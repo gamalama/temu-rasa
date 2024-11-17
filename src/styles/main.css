@@ -229,3 +229,44 @@ form.input-bar::after {
     color: var(--font-color);
     font-weight: bold;
 }
+
+
+.restaurant-menu {
+    margin-top: 32px;
+}
+
+.restaurant-menu h2 {
+    margin-bottom: 16px;
+}
+
+.menu {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.menu__category {
+    flex: 1;
+    min-width: 250px;
+    padding: 16px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.menu__category h3 {
+    margin-bottom: 8px;
+    font-size: 1.5rem;
+    color: var(--secondary-color);
+}
+
+.menu__category ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.menu__category li {
+    margin: 8px 0;
+    font-size: 1rem;
+    color: var(--font-color);
+}
