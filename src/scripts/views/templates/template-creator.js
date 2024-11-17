@@ -18,14 +18,11 @@ const createRestaurantDetailTemplate = (restaurant) => `
         <div class="restaurant__image">
             <img src="${CONFIG.BASE_URL}images/large/${restaurant.pictureId}" alt="${restaurant.name} Photo">
         </div>
-        <div class="restaurant__info">
-            <h1>${restaurant.name}</h1>
-            <p><i class="fa fa-map-marker"></i>${restaurant.city}</p>
-            <p><i class="fa fa-star"></i>${restaurant.rating}</p>
-            <p>${restaurant.description}</p>
-            <button class="btn-favorite">
-                <i class="fa fa-heart"></i> Tambah ke Favorit
-            </button>
+        <div id="restaurant-info" class="restaurant__info">
+          <h1>${restaurant.name}</h1>
+          <p><i class="fa fa-map-marker"></i>${restaurant.city}</p>
+          <p><i class="fa fa-star"></i>${restaurant.rating}</p>
+          <p>${restaurant.description}</p>           
         </div>
     </section>
 
@@ -63,7 +60,21 @@ ${restaurant.customerReviews.map((review) => (
     </section>
 `;
 
+const createLikeButtonTemplate = () => `
+  <button aria-label="like this restaurant" id="likeButton" class="like">
+     <i class="fa fa-heart-o" aria-hidden="true"></i>
+  </button>
+`;
+
+const createLikedButtonTemplate = () => `
+  <button aria-label="unlike this restaurant" id="likeButton" class="like">
+    <i class="fa fa-heart" aria-hidden="true"></i>
+  </button>
+`;
+
 export {
   createRestaurantItemTemplate,
-  createRestaurantDetailTemplate
+  createRestaurantDetailTemplate,
+  createLikeButtonTemplate,
+  createLikedButtonTemplate,
 };
