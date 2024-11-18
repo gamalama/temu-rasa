@@ -20,9 +20,9 @@ const createRestaurantDetailTemplate = (restaurant) => `
         </div>
         <div id="restaurant-info" class="restaurant__info">
           <h1>${restaurant.name}</h1>
-          <p><i class="fa fa-map-marker"></i>${restaurant.city}</p>
-          <p><i class="fa fa-star"></i>${restaurant.rating}</p>
-          <p>${restaurant.description}</p>           
+          <p class="restaurant-address"><i class="fa fa-map-marker"></i>&nbsp;&nbsp;${restaurant.address}, ${restaurant.city}</p>
+          <p><i class="fa fa-star"></i>&nbsp;&nbsp;${restaurant.rating}</p>
+          <p class="restaurant-info__description">${restaurant.description}</p>           
         </div>
     </section>
 
@@ -47,14 +47,28 @@ ${restaurant.menus.drinks.map((drink) => (`<li>${drink.name}</li>`)).join('')}
 
     <!-- Ulasan Pelanggan -->
     <section class="customer-review">
-        <h2>Ulasan Pelanggan</h2>
-        <div class="review">
+        <h2>Customer Review</h2>
+        <div class="form-container">
+        <form class="add-review">
+          <input type="hidden" value="${restaurant.id}" name="restaurantId">
+          <label for="name">Name</label>
+          <input type="text" id="name" placeholder="Your name">
+          
+          <label for="review">Review</label>
+          <textarea name="review" id="review" placeholder="Your review"></textarea>
+          
+          <button>Submit</button>
+        </form>
+        </div>
+        <div class="reviews">
 ${restaurant.customerReviews.map((review) => (
     `<div class="review__item">
-      <p><strong>${review.name}</strong></p>
-      <p>${review.date}</p>
-      <p>${review.review}</p>
-    </div>`
+       <div class="review__card">
+         <h3>${review.name}</h3>
+         <p class="review-date">${review.date}</p>
+         <p class="review-text">${review.review}</p>
+       </div>
+     </div>`
   )).join('')}        
         </div>
     </section>

@@ -2,6 +2,7 @@ import UrlParser from '../../routes/url-parser';
 import RestaurantApiSource from '../../data/restaurantapi-source';
 import {  createRestaurantDetailTemplate } from '../templates/template-creator';
 import LikeButtonInitiator from '../../utils/like-button-initiator';
+import AddReviewButtonInitiator from '../../utils/add-review-button-initiator';
 
 const Detail = {
   async render(){
@@ -17,6 +18,7 @@ const Detail = {
     const restaurant = await RestaurantApiSource.detailRestaurant(url.id);
     const restaurantContainer = document.querySelector('#restaurant');
     restaurantContainer.innerHTML = createRestaurantDetailTemplate(restaurant);
+    const formAddReviewElement = document.querySelector('.add-review');
 
     LikeButtonInitiator.init({
       likeButtonContainer: document.querySelector('#likeButtonContainer'),
@@ -24,6 +26,7 @@ const Detail = {
         id: restaurant.id,
         name: restaurant.name,
         description: restaurant.description,
+        address: restaurant.address,
         city: restaurant.city,
         pictureId: restaurant.pictureId,
         menus: restaurant.menus,
@@ -31,6 +34,8 @@ const Detail = {
         customerReviews: restaurant.customerReviews,
       },
     });
+
+    AddReviewButtonInitiator.init(formAddReviewElement);
   }
 };
 

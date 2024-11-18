@@ -7,7 +7,6 @@ class App {
     this._button = button;
     this._drawer = drawer;
     this._content = content;
-    // this._hero = hero;
 
     this._initialAppShell();
   }
@@ -17,7 +16,6 @@ class App {
       button: this._button,
       drawer: this._drawer,
       content: this._content,
-      // hero: this._hero,
     });
   }
   async renderPage() {

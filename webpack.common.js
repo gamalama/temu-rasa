@@ -54,6 +54,13 @@ module.exports = {
           },
         },
         {
+          urlPattern: ({ url }) => url.href.startsWith('https://restaurant-api.dicoding.dev/#/detail/'),
+          handler: 'StaleWhileRevalidate',
+          options: {
+            cacheName: 'restaurant-detail-api',
+          },
+        },
+        {
           urlPattern: ({ url }) => url.href.startsWith('https://restaurant-api.dicoding.dev/images/'),
           handler: 'StaleWhileRevalidate',
           options: {
