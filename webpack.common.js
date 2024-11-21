@@ -3,6 +3,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const WorkboxWebpackPlugin = require('workbox-webpack-plugin');
+const ImageminWebpackPlugin = require('imagemin-webpack-plugin').default;
+const ImageminMozjpeg = require('imagemin-mozjpeg');
 
 module.exports = {
   entry: {
@@ -40,6 +42,10 @@ module.exports = {
         {
           from: path.resolve(__dirname, 'src/public/'),
           to: path.resolve(__dirname, 'dist/'),
+          globOptions: {
+            // CopyWebpackPlugin mengabaikan berkas yang berada di dalam folder heros
+            ignore: ['**/heros/**'],
+          },
         },
       ],
     }),
@@ -47,26 +53,37 @@ module.exports = {
       swDest: './sw.bundle.js',
       runtimeCaching: [
         {
-          urlPattern: ({ url }) => url.href.startsWith('https://restaurant-api.dicoding.dev/'),
+          urlPattern: ({ url }) => url.href.startsWith(
+            'https://restaurant-api.dicoding.dev/'),
           handler: 'StaleWhileRevalidate',
           options: {
             cacheName: 'restaurant-api',
           },
         },
         {
-          urlPattern: ({ url }) => url.href.startsWith('https://restaurant-api.dicoding.dev/#/detail/'),
+          urlPattern: ({ url }) => url.href.startsWith(
+            'https://restaurant-api.dicoding.dev/#/detail/'),
           handler: 'StaleWhileRevalidate',
           options: {
             cacheName: 'restaurant-detail-api',
           },
         },
         {
-          urlPattern: ({ url }) => url.href.startsWith('https://restaurant-api.dicoding.dev/images/'),
+          urlPattern: ({ url }) => url.href.startsWith(
+            'https://restaurant-api.dicoding.dev/images/'),
           handler: 'StaleWhileRevalidate',
           options: {
             cacheName: 'restaurant-image-api',
           },
         },
+      ],
+    }),
+    new ImageminWebpackPlugin({
+      plugins: [
+        ImageminMozjpeg({
+          quality: 50,
+          progressive: true,
+        }),
       ],
     }),
   ],
