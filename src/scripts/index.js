@@ -11,7 +11,7 @@ const app = new App({
   button: document.querySelector('#menu'),
   drawer: document.querySelector('#drawer'),
   content: document.querySelector('#mainContent'),
-  // hero: document.querySelector('.hero'),
+  skipLink: document.querySelector('.skip-link'),
 });
 
 window.addEventListener('hashchange', ()=> {
