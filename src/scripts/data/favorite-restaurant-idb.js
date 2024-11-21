@@ -23,6 +23,10 @@ const FavoriteRestaurantIdb = {
   },
 
   async putRestaurant(restaurant) {
+    if (!Object.prototype.hasOwnProperty.call(restaurant, 'id')) {
+      return ;
+    }
+
     return (await dbPromise).put(OBJECT_STORE_NAME, restaurant);
   },
 
