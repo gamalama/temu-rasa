@@ -1,5 +1,4 @@
 import FavoriteRestaurantIdb from '../../data/favorite-restaurant-idb';
-import { createRestaurantItemTemplate } from '../templates/template-creator';
 import FavoriteRestaurantView
   from './liked-restaurants/favorite-restaurant-view';
 import FavoriteRestaurantShowPresenter

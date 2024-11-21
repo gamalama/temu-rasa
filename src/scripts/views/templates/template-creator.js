@@ -5,7 +5,7 @@ const createRestaurantItemTemplate = (restaurant) => `
     <div class="card__image">
       <img src="${CONFIG.BASE_URL}images/medium/${restaurant.pictureId}" alt="${restaurant.name} Photo">
     </div>
-    <h2><a href="/#/detail/${restaurant.id}">${restaurant.name}</a></h2>
+    <h2 class="card__title"><a href="/#/detail/${restaurant.id}">${restaurant.name}</a></h2>
     <i class="fa fa-star"></i><span>${restaurant.rating}</span>
     <p class="location">${restaurant.city}</p>
     <p class="card__description">${restaurant.description.substring(0, 100)}</p>
@@ -19,7 +19,7 @@ const createRestaurantDetailTemplate = (restaurant) => `
             <img src="${CONFIG.BASE_URL}images/large/${restaurant.pictureId}" alt="${restaurant.name} Photo">
         </div>
         <div id="restaurant-info" class="restaurant__info">
-          <h1>${restaurant.name}</h1>
+          <h1 class="restaurant-detail__title">${restaurant.name}</h1>
           <p class="restaurant-address"><i class="fa fa-map-marker"></i>&nbsp;&nbsp;${restaurant.address}, ${restaurant.city}</p>
           <p><i class="fa fa-star"></i>&nbsp;&nbsp;${restaurant.rating}</p>
           <p class="restaurant-info__description">${restaurant.description}</p>           
