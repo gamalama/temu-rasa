@@ -187,6 +187,7 @@ form.input-bar::after {
 }
 
 .card h2 a {
+    padding-block: .4rem;
     text-decoration: none;
     color: var(--font-color);
 }
